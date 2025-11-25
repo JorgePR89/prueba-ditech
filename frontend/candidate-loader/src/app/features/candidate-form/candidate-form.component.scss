@@ -1,0 +1,37 @@
+﻿section {
+  width: 100%;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.inputs {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.file-input {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.file-hint {
+  font-size: 0.9rem;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.total {
+  margin: 0.75rem 0 0;
+  color: rgba(0, 0, 0, 0.6);
+}

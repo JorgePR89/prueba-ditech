@@ -1,4 +1,5 @@
 @use "@angular/material" as mat;
+@import "@angular/material/prebuilt-themes/indigo-pink.css";
 
 *,
 *::before,
@@ -16,6 +17,10 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
   background: var(--surface-bg);
   color: #1f1f1f;
+}
+
+mat-card {
+  padding: 1.5rem;
 }
 
 .page-shell {

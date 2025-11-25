@@ -1,4 +1,11 @@
-﻿import { inject, Injectable, PLATFORM_ID, signal, computed, effect } from '@angular/core';
+﻿import {
+  inject,
+  Injectable,
+  PLATFORM_ID,
+  signal,
+  computed,
+  effect,
+} from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { Candidate } from '../models/candidate.model';
 
@@ -6,15 +13,15 @@ const STORAGE_KEY = 'candidate-loader:list';
 
 @Injectable({ providedIn: 'root' })
 export class CandidatesStoreService {
-  private readonly platformId = inject(PLATFORM_ID);
-  private readonly storageSupported = isPlatformBrowser(this.platformId);
+  private platformId = inject(PLATFORM_ID);
+  private storageSupported = isPlatformBrowser(this.platformId);
 
-  private readonly state = signal<Candidate[]>(this.restore());
+  private state = signal<Candidate[]>(this.restore());
 
-  readonly candidates = this.state.asReadonly();
-  readonly total = computed(() => this.state().length);
+  candidates = this.state.asReadonly();
+  total = computed(() => this.state().length);
 
-  private readonly persistEffect = effect(() => {
+  private persistEffect = effect(() => {
     if (!this.storageSupported) {
       return;
     }

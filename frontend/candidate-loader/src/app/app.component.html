@@ -1,27 +1,23 @@
 ﻿<div class="page-shell">
   <mat-toolbar color="primary">
-    <span>{{ title }}</span>
+    <span>Carga de candidatos</span>
   </mat-toolbar>
 
   <main class="page-content">
-    <section class="hero mat-elevation-z2">
+    <section class="hero">
       <header>
         <h1>Panel de carga de candidatos</h1>
         <p>
-          Punto de partida para el formulario y la tabla que enviarÃ¡n datos al backend NestJS.
+          Punto de partida para el formulario y la tabla que enviarán datos al
+          backend NestJS.
         </p>
       </header>
-    </section>
-
-    <section class="placeholder mat-elevation-z1">
-      <h2>Estado actual</h2>
-      <p>
-        Estructura lista para alojar el flujo real de carga y visualizaciÃ³n.
-      </p>
+      <app-candidate-form></app-candidate-form>
+      <app-candidates-table></app-candidates-table>
     </section>
   </main>
 
   <footer class="page-footer">
-    <span>Prueba tÃ©cnica Ditech Â· {{ title }}</span>
+    <span>Prueba técnica Ditech. Carga de candidatos</span>
   </footer>
 </div>
