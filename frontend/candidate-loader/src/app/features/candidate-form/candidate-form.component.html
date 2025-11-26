@@ -1,0 +1,55 @@
+﻿<section>
+  <mat-card>
+    <form [formGroup]="form" (ngSubmit)="submit()" class="form" #htmlForm>
+      <div class="inputs">
+        <mat-form-field appearance="outline">
+          <mat-label>Nombre</mat-label>
+          <input matInput formControlName="name" required />
+          <mat-error *ngIf="form.controls.name.hasError('required')">
+            El nombre es obligatorio
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Apellido</mat-label>
+          <input matInput formControlName="surname" required />
+          <mat-error *ngIf="form.controls.surname.hasError('required')">
+            El apellido es obligatorio
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="file-input">
+        <label for="excel-input">Documento Excel</label>
+        <input
+          type="file"
+          accept=".xlsx,.xls"
+          (change)="onFileChange($event)"
+        />
+        <p class="file-hint" *ngIf="fileSignal() as file">{{ file.name }}</p>
+      </div>
+
+      <div class="actions">
+        <button
+          mat-flat-button
+          color="primary"
+          [disabled]="!canSubmit()"
+          type="submit"
+        >
+          Cargar candidato
+        </button>
+        <button
+          type="button"
+          mat-stroked-button
+          color="basic"
+          (click)="resetForm()"
+        >
+          Limpiar
+        </button>
+      </div>
+    </form>
+
+    <mat-progress-bar mode="indeterminate" *ngIf="loading()"></mat-progress-bar>
+    <p class="total">Total registrados: {{ totalCandidates() }}</p>
+  </mat-card>
+</section>
